@@ -1,4 +1,9 @@
-from src.coverage_engine import CoverageEngine, ROUTE_ORDER
+from src.coverage_engine import CoverageEngine, ROUTE_ORDER, _portable_relative_path
+
+
+def test_source_paths_are_portable_across_windows_and_linux():
+    assert _portable_relative_path(r"0702\evidence.md").parts == ("0702", "evidence.md")
+    assert _portable_relative_path("0702/evidence.md").parts == ("0702", "evidence.md")
 
 
 def test_all_scenarios_have_four_ordered_routes_and_valid_sources():

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from .config import APP_ROOT, SOURCE_DIR
 
@@ -20,6 +20,14 @@ ACTIVITY_GUIDANCE = {
     "공동생활·야외훈련 혼합": "공동생활 감염예방과 매개체 노출예방을 함께 확인하세요. 활동환경은 안내 내용만 바꾸며 PNPS에는 반영되지 않습니다.",
     "아직 잘 모르겠음": "배치 후 실제 생활·훈련환경에 맞춰 예방수칙을 다시 확인하세요. 현재 선택은 PNPS에 반영되지 않습니다.",
 }
+
+
+def _portable_relative_path(value: str) -> Path:
+    """Convert stored Windows or POSIX separators into a safe local path."""
+    portable = PurePosixPath(value.replace("\\", "/"))
+    if portable.is_absolute() or ".." in portable.parts:
+        raise ValueError(f"Invalid relative source path: {value}")
+    return Path(*portable.parts)
 
 
 @dataclass(frozen=True)
@@ -43,7 +51,7 @@ class CoverageRoute:
 
     @property
     def source_path(self) -> Path | None:
-        return SOURCE_DIR / Path(self.source_file) if self.source_file else None
+        return SOURCE_DIR / _portable_relative_path(self.source_file) if self.source_file else None
 
 
 @dataclass(frozen=True)
