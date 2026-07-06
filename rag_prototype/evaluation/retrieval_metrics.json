@@ -1,0 +1,10 @@
+{
+  "question_count": 60,
+  "recall_at_5": 1.0,
+  "disease_hit_at_5": 1.0,
+  "intent_hit_at_5": 1.0,
+  "historical_filter_violations": 0,
+  "mean_latency_ms": 86.20493166527012,
+  "p95_latency_ms": 104.00659999868367,
+  "method": "character n-gram TF-IDF + BM25 + disease/intent/authority/current-status reranking"
+}

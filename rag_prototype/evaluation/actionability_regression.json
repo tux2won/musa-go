@@ -1,0 +1,10 @@
+{
+  "original_notebook_preserved": true,
+  "executed_code_cells": 19,
+  "execution_errors": 0,
+  "actionability_max_absolute_difference": 0.0,
+  "nps_max_absolute_difference": 0.0,
+  "pnps_example_max_absolute_difference": 0.0,
+  "disease_rank_identical": true,
+  "interpretation": "문서 근거로 재산출한 태그가 기존 임시값과 동일하여 점수와 순위가 유지됨"
+}

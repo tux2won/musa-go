@@ -1,0 +1,333 @@
+{
+  "version": "2026-07-03",
+  "interpretation": "질병명만으로 비용 부담이나 보험금 지급을 판정하지 않고 진료 상황별 확인 경로를 안내한다.",
+  "scenarios": {
+    "prepare": {
+      "label": "입대 전 대비",
+      "summary": "접종이력과 기존 보장내역을 확인하고, 아플 때 이용할 군의료 경로를 미리 알아둡니다.",
+      "urgent_first": false,
+      "checklist": [
+        "예방접종도우미에서 접종이력을 확인하기",
+        "부대 의무실과 군병원 이용 순서를 알아두기",
+        "본인 명의의 기존 실손·단체보험 가입내역을 확인하기",
+        "나라사랑카드 보험은 현재 상품명과 적용기간을 카드사·보험사에 다시 확인하기"
+      ],
+      "routes": [
+        {
+          "route_type": "military_care",
+          "title": "군의료",
+          "eligibility_condition": "입대 후 증상이나 노출이 의심되는 현역 장병",
+          "first_action": "증상이 생기면 자가판단보다 먼저 부대 의무실 또는 소속부대에 알릴 경로를 확인합니다.",
+          "documents_to_check": ["접종이력", "기존 의무기록이 있다면 사본"],
+          "cost_responsibility_status": "실제 진료장소와 절차에 따라 달라짐",
+          "source_file": "0702\\행정규칙 _ 국방 환자관리 훈령.md",
+          "source_locator": "제8조(외래진료 절차 등)",
+          "effective_date": "2026",
+          "certainty_status": "official",
+          "interpretation_warning": "입대 전 단계에서는 개인별 진료비 부담을 확정할 수 없습니다."
+        },
+        {
+          "route_type": "public_support",
+          "title": "공공보장",
+          "eligibility_condition": "건강보험 급여기준 또는 별도 국가부담 요건을 충족하는 경우",
+          "first_action": "질병명만 보지 말고 실제 검사·처치·약제의 급여·비급여 여부를 확인합니다.",
+          "documents_to_check": ["진료비 계산서·영수증", "진료비 세부산정내역서"],
+          "cost_responsibility_status": "급여기준과 지원요건에 따른 조건부 확인",
+          "source_file": "0702\\본인부담률 및 부담액 _ 건강보험 본인부담기준 안내 _ 본인부담기준 _ 제도·정책 _ 건강보험심사평가원.md",
+          "source_locator": "건강보험 진료비 본인 부담기준",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "예방접종·비급여 등은 별도 기준이 적용될 수 있습니다."
+        },
+        {
+          "route_type": "civilian_care",
+          "title": "민간의료",
+          "eligibility_condition": "군 의료체계 내 진료가 제한되어 승인된 경우 또는 응급상황",
+          "first_action": "비응급 상황에서는 민간병원을 먼저 선택하기보다 군의료기관의 의뢰·승인 경로를 확인합니다.",
+          "documents_to_check": ["위탁진료 승인 여부", "민간의료기관 이용 절차"],
+          "cost_responsibility_status": "승인 여부와 진료 범위에 따라 달라짐",
+          "source_file": "0702\\행정규칙 _ 민간위탁진료 업무 훈령.md",
+          "source_locator": "제2조(정의)·제3조(지원 대상)",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "개인 선택에 의한 민간진료와 승인된 위탁진료는 비용처리가 다를 수 있습니다."
+        },
+        {
+          "route_type": "private_insurance",
+          "title": "기존 민간보험",
+          "eligibility_condition": "본인이 가입한 현행 보험계약의 조건을 충족하는 경우",
+          "first_action": "새 상품을 추천받기보다 먼저 기존 가입내역과 약관의 보험기간·질병보장·면책조건을 확인합니다.",
+          "documents_to_check": ["보험증권 또는 가입내역", "현행 약관", "보험사 청구서류 안내"],
+          "cost_responsibility_status": "현재 수집 문서만으로 보장 판정 불가",
+          "source_file": "",
+          "source_locator": "현행 공식 약관 미확보",
+          "effective_date": "unknown",
+          "certainty_status": "evidence_gap",
+          "interpretation_warning": "특정 상품 가입·보장·보험금 지급을 추천하거나 확정하지 않습니다."
+        }
+      ]
+    },
+    "symptoms": {
+      "label": "증상이 생김",
+      "summary": "비용보다 진료가 먼저입니다. 증상과 노출 사실을 부대에 알리고 의료진의 지시를 따릅니다.",
+      "urgent_first": true,
+      "checklist": [
+        "증상 시작 시각과 노출 상황을 메모하기",
+        "지체 없이 부대 의무실 또는 소속부대에 알리기",
+        "응급하면 비용 확인보다 119·응급진료를 우선하기",
+        "진료 후 안내받은 서류와 기록을 보관하기"
+      ],
+      "routes": [
+        {
+          "route_type": "military_care",
+          "title": "군의료",
+          "eligibility_condition": "증상 또는 감염 노출이 의심되는 장병",
+          "first_action": "부대 의무실·군의관에게 증상과 노출 사실을 알리고 군병원 또는 후송 지시를 따릅니다.",
+          "documents_to_check": ["증상·노출 메모", "의무기록", "필요 시 진단서"],
+          "cost_responsibility_status": "군의료 절차 안에서 우선 진료",
+          "source_file": "0702\\행정규칙 _ 국방 환자관리 훈령.md",
+          "source_locator": "제8조(외래진료 절차 등)·제13조(감염병환자 처리)",
+          "effective_date": "2026",
+          "certainty_status": "official",
+          "interpretation_warning": "이 화면은 진단을 하지 않으며 의료진의 판단을 대신하지 않습니다."
+        },
+        {
+          "route_type": "public_support",
+          "title": "공공보장",
+          "eligibility_condition": "복무와의 연관성 및 법정 승인요건이 확인되는 경우",
+          "first_action": "공무상 질병인지 스스로 단정하지 말고 부대·군병원의 심의와 신청절차를 확인합니다.",
+          "documents_to_check": ["발병경위서", "진단서", "공무상요양 승인서류"],
+          "cost_responsibility_status": "공무상 여부와 지급액은 심의 후 결정",
+          "source_file": "0702\\행정규칙 _ 공무상요양비 업무 훈령.md",
+          "source_locator": "제2조(공무상요양 승인 절차)",
+          "effective_date": "2026-03-01",
+          "certainty_status": "conditional",
+          "interpretation_warning": "복무 중 발병했다는 사실만으로 공무상요양이 자동 승인되지는 않습니다."
+        },
+        {
+          "route_type": "civilian_care",
+          "title": "민간의료",
+          "eligibility_condition": "군병원 후송이 위험한 응급상황이거나 위탁진료 승인을 받은 경우",
+          "first_action": "응급이면 즉시 진료를 받고, 가능한 한 부대가 의료종합상황센터 신고·승인 절차를 진행하도록 합니다.",
+          "documents_to_check": ["응급진료 기록", "진료비 계산서·영수증", "진료비 세부산정내역서"],
+          "cost_responsibility_status": "응급성·승인 범위·심의 결과에 따른 조건부 지원",
+          "source_file": "0702\\행정규칙 _ 민간위탁진료 업무 훈령.md",
+          "source_locator": "제10조(응급성 인정에 따른 위탁치료)",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "응급성 인정과 위탁진료비 지급은 별도 절차와 심의를 거칩니다."
+        },
+        {
+          "route_type": "private_insurance",
+          "title": "기존 민간보험",
+          "eligibility_condition": "진료가 안정된 뒤 본인의 현행 보험계약을 확인하는 경우",
+          "first_action": "진료를 미루지 말고, 사후에 기존 실손·단체보험의 청구 가능 항목과 필요서류를 보험사에 확인합니다.",
+          "documents_to_check": ["진단명·질병분류코드가 기재된 서류", "영수증·세부내역서", "처방전", "보험사별 청구서류"],
+          "cost_responsibility_status": "약관과 실제 진료행위에 따라 개별 판단",
+          "source_file": "",
+          "source_locator": "현행 공식 약관 미확보",
+          "effective_date": "unknown",
+          "certainty_status": "evidence_gap",
+          "interpretation_warning": "보험 확인 때문에 응급진료를 지연해서는 안 됩니다."
+        }
+      ]
+    },
+    "military_care": {
+      "label": "의무실·군병원 이용 중",
+      "summary": "진료 지시와 기록을 유지하면서 민간위탁 필요 여부와 공무상 절차를 확인합니다.",
+      "urgent_first": false,
+      "checklist": [
+        "담당 군의관에게 민간검사·위탁진료 필요 여부 묻기",
+        "위탁진료라면 승인 기간과 담당 군병원 확인하기",
+        "발병경위서·진단서가 필요한 절차인지 확인하기",
+        "진료 종료 전 필요한 의무기록 발급 방법 확인하기"
+      ],
+      "routes": [
+        {
+          "route_type": "military_care",
+          "title": "군의료",
+          "eligibility_condition": "군보건의료기관에서 진료 중인 장병",
+          "first_action": "담당 군의관의 진료·검사·후송 지시를 따르고 민간위탁 필요 여부를 확인합니다.",
+          "documents_to_check": ["의무기록", "진단서", "위탁진료 승인 내역"],
+          "cost_responsibility_status": "군의료기관의 진료·위탁 판단에 따름",
+          "source_file": "0702\\행정규칙 _ 국방 환자관리 훈령.md",
+          "source_locator": "제8조(외래진료 절차 등)·제9조(입원절차)",
+          "effective_date": "2026",
+          "certainty_status": "official",
+          "interpretation_warning": "민간검사·진료가 필요해도 자비진료와 위탁진료는 구분해야 합니다."
+        },
+        {
+          "route_type": "public_support",
+          "title": "공공보장",
+          "eligibility_condition": "군 복무와의 연관성 및 공무상요양 승인요건이 충족되는 경우",
+          "first_action": "공무 연관성이 의심되면 발병경위서와 신청 시점을 소속부대·군병원에 확인합니다.",
+          "documents_to_check": ["발병경위서", "진단서", "민간병원 진료심의 의결서"],
+          "cost_responsibility_status": "승인·심의 결과에 따라 지급 범위 결정",
+          "source_file": "0702\\행정규칙 _ 공무상요양비 업무 훈령.md",
+          "source_locator": "제2조(공무상요양 승인 절차)·제7조(지급기준)",
+          "effective_date": "2026-03-01",
+          "certainty_status": "conditional",
+          "interpretation_warning": "서비스는 공무상 여부를 판정하지 않습니다."
+        },
+        {
+          "route_type": "civilian_care",
+          "title": "민간의료",
+          "eligibility_condition": "군병원 진료능력 초과·응급·격오지·특별승인 등 위탁요건에 해당하는 경우",
+          "first_action": "민간병원 예약·결제 전에 위탁 종류, 승인 주체, 승인 기간과 담당 군병원을 확인합니다.",
+          "documents_to_check": ["위탁진료 승인", "민간의료기관 의무기록", "영수증", "비급여 세부내역서"],
+          "cost_responsibility_status": "승인 범위와 제출서류에 따라 심의",
+          "source_file": "0702\\행정규칙 _ 민간위탁진료 업무 훈령.md",
+          "source_locator": "제8조(위탁치료의 종류)·제9조(진료능력 초과)",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "승인 기간 밖 진료나 근거자료가 없는 비용은 지급이 제한될 수 있습니다."
+        },
+        {
+          "route_type": "private_insurance",
+          "title": "기존 민간보험",
+          "eligibility_condition": "군·공공 지원 후에도 본인부담이 남고 기존 보험계약이 있는 경우",
+          "first_action": "중복 지급을 가정하지 말고 실제 본인부담액과 현행 약관의 보상방식을 보험사에 확인합니다.",
+          "documents_to_check": ["현행 약관", "지원·환급 결정내역", "실제 본인부담 증빙", "보험사 청구서류"],
+          "cost_responsibility_status": "공공지원과 약관을 함께 확인해야 함",
+          "source_file": "",
+          "source_locator": "현행 공식 약관 미확보",
+          "effective_date": "unknown",
+          "certainty_status": "evidence_gap",
+          "interpretation_warning": "공공지원과 민간보험의 중복·공제 방식은 계약별로 다를 수 있습니다."
+        }
+      ]
+    },
+    "civilian_needed": {
+      "label": "민간병원 이용이 필요함",
+      "summary": "응급 여부를 먼저 판단하고, 비응급이면 승인된 위탁진료인지 확인한 뒤 이용합니다.",
+      "urgent_first": true,
+      "checklist": [
+        "응급이면 즉시 진료를 우선하기",
+        "비응급이면 군의관·담당 군병원에 위탁승인 여부 확인하기",
+        "승인 주체·기간·진료 범위를 기록하기",
+        "영수증·세부내역서·의무기록을 발급받기"
+      ],
+      "routes": [
+        {
+          "route_type": "military_care",
+          "title": "군의료",
+          "eligibility_condition": "군의료기관에서 민간진료 필요성을 판단하는 경우",
+          "first_action": "담당 군의관 또는 군병원에 위탁치료·검사 대상인지 먼저 확인합니다.",
+          "documents_to_check": ["위탁진료 승인 내역", "담당 군병원", "승인 기간·범위"],
+          "cost_responsibility_status": "군의료 절차와 승인 여부에 따름",
+          "source_file": "0702\\행정규칙 _ 국방 환자관리 훈령.md",
+          "source_locator": "제8조제2항(민간위탁진료)",
+          "effective_date": "2026",
+          "certainty_status": "official",
+          "interpretation_warning": "개인이 선택한 민간진료가 자동으로 위탁진료가 되지는 않습니다."
+        },
+        {
+          "route_type": "public_support",
+          "title": "공공보장",
+          "eligibility_condition": "건강보험 급여 또는 공무상요양 승인 범위에 포함되는 경우",
+          "first_action": "공무상 신청 대상인지와 건강보험 급여·비급여 항목을 각각 확인합니다.",
+          "documents_to_check": ["진단서", "발병경위서", "진료비 계산서·영수증", "세부산정내역서"],
+          "cost_responsibility_status": "급여기준·공무상 승인에 따른 조건부 부담",
+          "source_file": "0702\\행정규칙 _ 공무상요양비 업무 훈령.md",
+          "source_locator": "제2조(승인 절차)·제7조(지급기준)",
+          "effective_date": "2026-03-01",
+          "certainty_status": "conditional",
+          "interpretation_warning": "공무상요양과 건강보험은 동일한 판정체계가 아닙니다."
+        },
+        {
+          "route_type": "civilian_care",
+          "title": "민간의료",
+          "eligibility_condition": "진료능력 초과·응급·격오지·특별승인 요건 중 하나에 해당하는 경우",
+          "first_action": "승인된 위탁진료인지 확인하고, 진료 종료 후 담당 군병원에 지급 신청합니다.",
+          "documents_to_check": ["발병경위서(필요 시)", "의무기록 사본·진단서(필요 시)", "진료비 계산서·영수증", "비급여 세부산정내역서", "통장 사본"],
+          "cost_responsibility_status": "실제 부담액을 기준으로 위탁진료심의위원회 심의",
+          "source_file": "0702\\행정규칙 _ 민간위탁진료 업무 훈령.md",
+          "source_locator": "제5조(위탁진료비 심의)·제9조제4항",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "미승인·승인기간 초과·자료 미제출 비용은 지급이 제한될 수 있습니다."
+        },
+        {
+          "route_type": "private_insurance",
+          "title": "기존 민간보험",
+          "eligibility_condition": "본인이 가입한 현행 실손·단체보험 등의 계약조건에 해당하는 경우",
+          "first_action": "보험사에 질병·상해 구분, 입원·통원·검사, 비급여, 면책과 청구서류를 질문합니다.",
+          "documents_to_check": ["보험기간·피보험자 상태", "질병·상해 보장범위", "입원·통원·검사 조건", "면책·대기기간", "청구서류"],
+          "cost_responsibility_status": "현행 약관과 실제 본인부담액으로 개별 판단",
+          "source_file": "",
+          "source_locator": "현행 공식 약관 미확보",
+          "effective_date": "unknown",
+          "certainty_status": "evidence_gap",
+          "interpretation_warning": "서비스는 특정 보험상품을 추천하거나 가입을 중개하지 않습니다."
+        }
+      ]
+    },
+    "already_paid": {
+      "label": "민간병원 비용을 이미 지불함",
+      "summary": "결제 사실만으로 환급을 단정하지 말고 승인·급여·기존보험을 순서대로 확인합니다.",
+      "urgent_first": false,
+      "checklist": [
+        "진료비 계산서·영수증 원본 또는 전자문서 확보하기",
+        "비급여가 있다면 세부산정내역서 확보하기",
+        "처방약이 있다면 처방전과 약제비 영수증 보관하기",
+        "담당 군병원에 위탁진료 지급신청 대상인지 확인하기",
+        "비급여가 의심되면 심평원 진료비 확인제도 검토하기",
+        "기존 보험사에 현행 약관과 필요서류 확인하기"
+      ],
+      "routes": [
+        {
+          "route_type": "military_care",
+          "title": "군의료",
+          "eligibility_condition": "승인된 위탁진료 또는 사후승인이 가능한 상황인 경우",
+          "first_action": "담당 군병원에 승인 내역과 지급 신청 가능 여부를 확인하고 서류를 제출합니다.",
+          "documents_to_check": ["위탁진료 승인", "영수증", "세부산정내역서", "의무기록", "통장 사본"],
+          "cost_responsibility_status": "승인 범위·심의 후 지급액 결정",
+          "source_file": "0702\\행정규칙 _ 민간위탁진료 업무 훈령.md",
+          "source_locator": "제9조제4항·제10조제4항",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "결제 영수증만으로 위탁진료비 지급이 보장되지는 않습니다."
+        },
+        {
+          "route_type": "public_support",
+          "title": "공공보장",
+          "eligibility_condition": "비급여·전액본인부담의 급여 해당 여부 확인이 필요한 경우",
+          "first_action": "진료비 계산서·영수증을 준비해 심평원 진료비 확인제도로 급여 대상 여부를 확인할 수 있습니다.",
+          "documents_to_check": ["진료비 계산서·영수증 또는 납입확인서", "처방전", "약제비 계산서·영수증"],
+          "cost_responsibility_status": "심사 결과에 따라 환불 가능 여부 결정",
+          "source_file": "0702\\진료비 확인 _ 조회·신청 _ 건강보험심사평가원.md",
+          "source_locator": "진료비 확인대상·필요서류·처리절차",
+          "effective_date": "2026",
+          "certainty_status": "official",
+          "interpretation_warning": "다른 법률에 따른 의료비 지원 등은 확인요청 제외대상일 수 있습니다."
+        },
+        {
+          "route_type": "civilian_care",
+          "title": "민간의료",
+          "eligibility_condition": "민간의료기관 진료비의 세부 항목과 진료기록을 확인하는 경우",
+          "first_action": "병원에서 영수증·세부산정내역서·필요한 의무기록을 발급받고 누락 여부를 점검합니다.",
+          "documents_to_check": ["진료비 계산서·영수증", "진료비 세부산정내역서", "의무기록 사본", "필요 시 진단서"],
+          "cost_responsibility_status": "진료항목·승인·급여기준별로 구분 확인",
+          "source_file": "0702\\행정규칙 _ 민간위탁진료 업무 훈령.md",
+          "source_locator": "제5조(위탁진료비 심의)·제9조제4항",
+          "effective_date": "2026",
+          "certainty_status": "conditional",
+          "interpretation_warning": "모든 비급여 또는 본인부담금이 지원·환급되는 것은 아닙니다."
+        },
+        {
+          "route_type": "private_insurance",
+          "title": "기존 민간보험",
+          "eligibility_condition": "진료일 당시 유효한 기존 보험계약이 있고 보장조건을 충족하는 경우",
+          "first_action": "보험사에 사고접수 전 보험기간·피보험자·보장항목·면책·공공지원 공제 여부·청구서류를 확인합니다.",
+          "documents_to_check": ["보험증권·가입내역", "현행 약관", "영수증·세부내역서", "진단서 또는 진료확인서", "처방전", "보험금 청구서"],
+          "cost_responsibility_status": "보험사 약관심사 전에는 지급 여부 확인 불가",
+          "source_file": "",
+          "source_locator": "현행 공식 약관 미확보",
+          "effective_date": "unknown",
+          "certainty_status": "evidence_gap",
+          "interpretation_warning": "과거 나라사랑카드 OCR 자료를 현재 보장 근거로 사용하지 않습니다."
+        }
+      ]
+    }
+  }
+}

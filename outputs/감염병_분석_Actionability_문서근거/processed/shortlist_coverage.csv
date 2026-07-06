@@ -1,0 +1,9 @@
+﻿disease,sex_age_present,regional_present,military_context_present
+수두,True,True,True
+말라리아,True,True,True
+유행성이하선염,True,True,True
+백일해,True,True,True
+A형간염,True,True,True
+일본뇌염,True,True,False
+신증후군출혈열,True,True,True
+쯔쯔가무시증,True,True,True

@@ -1,0 +1,9 @@
+﻿check,observed,expected,status
+성별·연령 ZIP 파일 수,10,10,PASS
+지역 ZIP 파일 수,170,170,PASS
+성별·연령 키 중복,0,0,PASS
+지역 키 중복,0,0,PASS
+음수 발생건수,0,0,PASS
+계=국내+국외 불일치(숏리스트 월),0,0,PASS
+연간계=월합 불일치(전체 질병),0,0,PASS
+숏리스트 양쪽 데이터 존재,8,8,PASS

@@ -1,0 +1,28 @@
+# Local environments and agent state
+/.agents/
+/.venv/
+/.venv-*/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local-only source material and working files
+/data/
+/document/
+/reference/
+/scripts/
+/tmp/
+/RAG_document/
+*.zip
+RAG_LLM_구축_실행계획서.md
+
+# Secrets and local Streamlit state
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Notebook and OS noise
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

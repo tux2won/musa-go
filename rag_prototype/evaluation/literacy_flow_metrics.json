@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "coverage_scenarios": 5,
+  "coverage_routes": 20,
+  "routes_with_official_source_file": 15,
+  "private_insurance_evidence_gap_routes": 5,
+  "sensitive_identity_fields_collected": 0,
+  "verified_scenarios": [
+    "강원 7월 말라리아 안내 1위",
+    "전남 11월 쯔쯔가무시증 안내 1위",
+    "증상 발생 시 즉시 진료 우선",
+    "민간병원 이용 전 승인·응급·개인선택 구분",
+    "이미 지불한 진료비의 영수증·세부내역서·처방전 확인",
+    "공무상 여부 자동 확정 방지",
+    "실손보험 상품추천·지급단정 방지"
+  ],
+  "streamlit_app_exceptions": 0,
+  "pytest_passed": 16,
+  "retrieval_recall_at_5": 1.0,
+  "safety_cases_passed": 14
+}

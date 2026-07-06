@@ -1,0 +1,7 @@
+{
+  "cases": 14,
+  "passed": 14,
+  "pass_rate": 1.0,
+  "failed_categories": [],
+  "evaluation_mode": "deterministic local grounded answer mode"
+}

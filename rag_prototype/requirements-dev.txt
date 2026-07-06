@@ -1,0 +1,8 @@
+-r requirements.txt
+pymupdf
+python-docx
+pytest
+nbformat
+nbclient
+nbconvert
+jupyter
