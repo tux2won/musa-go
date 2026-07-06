@@ -13,6 +13,9 @@
 /scripts/
 /tmp/
 /RAG_document/
+/outputs/*
+!/outputs/감염병_분석_Actionability_문서근거/
+!/outputs/감염병_분석_Actionability_문서근거/**
 *.zip
 RAG_LLM_구축_실행계획서.md
 
